@@ -2,52 +2,62 @@
 @import "../../scss/mixins";
 
 .product-list {
-margin:1rem;
+  margin: 1rem;
+
+//   display: flex;
+//   justify-content: space-evenly;
+//   align-items: center;
+//   flex-wrap: wrap;
+//   gap: 2rem;
 
 
 
-
-display: flex;
-justify-content: space-evenly;
-align-items: center;
-flex-wrap: wrap;
-gap: 2rem;
-
+@include flexxx(space-evenly,2rem);
   
-  
-    .card {
-width:350px;
-height: $cardHeight;
-position: relative;
 
-
+  .card {
+    width: 350px;
+    height: $cardHeight;
+    position: relative;
+    overflow: hidden;
 
     .price {
-position: absolute;
-top:50%;
-left:50%;
-transform: translate(-50%,-50%);
-background-color: $cardBgColor;
-color:$cardColor;
-padding: $cardPadding;
-border-radius: $borderRadius;
-
-
-
-
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $cardBgColor;
+      color: $cardColor;
+      padding: $cardPadding;
+      border-radius: $borderRadius;
+      z-index: 1;
     }
-    img{
-width:100%;
-height:$cardHeight ;
-border-radius: $borderRadius;
-filter:sepia(100%)
-
+    img {
+      width: 100%;
+      height: $cardHeight;
+      border-radius: $borderRadius;
+      filter: sepia(100%); //img nin trengini soldurur
     }
 
-    &-over{
+    &-over {
+      width: 100%;
+      font-size: 1.2rem;
+      background-color: $cardBgColor;
+      padding: $cardPadding;
+      border-radius: $borderRadius;
+      position: absolute;
+      bottom: 0;
+      color: darken(white, 50%); //rengin tonunu koyulaştırır
+      transform: translateX(100%);
+      transition: all 0.7s;
+    }
 
+    &:hover .card-over {
+      transform: translateX(0%);
+    }
 
-
+    &:hover img{
+        filter: none;
     }
   }
 }

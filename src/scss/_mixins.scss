@@ -1,0 +1,7 @@
+@mixin flexxx($hizala,$mesafe) {
+  display: flex;
+  justify-content: $hizala;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $mesafe;
+}
